@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Use Deep Learning to Clone Cars Driving Behavior</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css">
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://localhost:8080/use-deep-learning-to-clone/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://localhost:8080/use-deep-learning-to-clone/amp/">
+    
+    <meta property="og:site_name" content="Mani Sai Prasad">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Use Deep Learning to Clone Cars Driving Behavior">
+    <meta property="og:description" content="GoalsUse the simulator to collect data of good driving behavior. Udacity provided a simulator application where we can steer a car around a track for data collection. The collected data is comprised of image data captured from a car’s set of cameras as well as steering anglesBuild, a convolution">
+    <meta property="og:url" content="http://localhost:8080/use-deep-learning-to-clone/">
+    <meta property="og:image" content="../content/images/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png">
+    <meta property="article:published_time" content="2020-04-27T15:54:20.000Z">
+    <meta property="article:modified_time" content="2020-04-27T16:53:22.000Z">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="article:tag" content="Self Driving Cars">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/m.manisai">
+    <meta property="article:author" content="https://www.facebook.com/m.manisai">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Use Deep Learning to Clone Cars Driving Behavior">
+    <meta name="twitter:description" content="GoalsUse the simulator to collect data of good driving behavior. Udacity provided a simulator application where we can steer a car around a track for data collection. The collected data is comprised of image data captured from a car’s set of cameras as well as steering anglesBuild, a convolution">
+    <meta name="twitter:url" content="http://localhost:8080/use-deep-learning-to-clone/">
+    <meta name="twitter:image" content="http://localhost:8080/content/images/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Mani Sai Prasad Masupalli">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Machine Learning, Self Driving Cars">
+    <meta name="twitter:site" content="@mmanisaiprasad">
+    <meta name="twitter:creator" content="@mmanisaiprasad">
+    <meta property="og:image:width" content="1023">
+    <meta property="og:image:height" content="763">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Mani Sai Prasad",
+        "url": "http://localhost:8080/",
+        "logo": "http://localhost:8080/content/images/2020/05/Mani-Sai-Prasad--3-.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mani Sai Prasad Masupalli",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:8080/content/images/2020/04/IMG_0922.jpg",
+            "width": 2000,
+            "height": 1609
+        },
+        "url": "http://localhost:8080/author/manisaiprasad/",
+        "sameAs": [
+            "https://manisaiprasad.ninja/",
+            "https://www.facebook.com/m.manisai",
+            "https://twitter.com/mmanisaiprasad"
+        ]
+    },
+    "headline": "Use Deep Learning to Clone Cars Driving Behavior",
+    "url": "http://localhost:8080/use-deep-learning-to-clone/",
+    "datePublished": "2020-04-27T15:54:20.000Z",
+    "dateModified": "2020-04-27T16:53:22.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:8080/content/images/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png",
+        "width": 1023,
+        "height": 763
+    },
+    "keywords": "Machine Learning, Self Driving Cars",
+    "description": "Goals\n * Use the simulator to collect data of good driving behavior. Udacity provided\n   a simulator application where we can steer a car around a track for data\n   collection. The collected data is comprised of image data captured from a\n   car’s set of cameras as well as steering angles\n * Build, a convolution neural network in Keras that predicts steering angles\n   from images\n * Train and validate the model with a training and validation set\n * Test that the model successfully drives around ",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:8080/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.14">
+    <link rel="alternate" type="application/rss+xml" title="Mani Sai Prasad" href="http://localhost:8080/rss/">
+
+</head>
+<body class="post-template tag-machine-learning tag-self-driving-cars">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header">
+    <div class="outer site-nav-main">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
+                <a class="site-nav-logo" href="../"><img src="../content/images/2020/05/Mani-Sai-Prasad--3-.png" alt="Mani Sai Prasad"></a>
+            <div class="site-nav-content">
+                    <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="../">Home</a></li>
+    <li class="nav-tag" role="menuitem"><a href="../tag/machine-learning/">Tag</a></li>
+    <li class="nav-author" role="menuitem"><a href="../author/manisaiprasad/">Author</a></li>
+</ul>
+
+                    <span class="nav-post-title ">Use Deep Learning to Clone Cars Driving Behavior</span>
+            </div>
+        </div>
+    </div>
+    <div class="site-nav-right">
+            <div class="social-links">
+                    <a class="social-link social-link-fb" href="https://www.facebook.com/m.manisai" title="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm5.204 4.911h-3.546c-2.103 0-4.443.885-4.443 3.934.01 1.062 0 2.08 0 3.225h-2.433v3.872h2.509v11.147h4.61v-11.22h3.042l.275-3.81h-3.397s.007-1.695 0-2.187c0-1.205 1.253-1.136 1.329-1.136h2.054V4.911z"/></svg></a>
+                    <a class="social-link social-link-tw" href="https://twitter.com/mmanisaiprasad" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            </div>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/http://localhost:8080/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+</a>
+
+    </div>
+</nav>
+    </div>
+</div></header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post tag-machine-learning tag-self-driving-cars featured ">
+
+            <header class="post-full-header">
+
+                <section class="post-full-tags">
+                    <a href="../tag/machine-learning/">Machine Learning</a>
+                </section>
+
+                <h1 class="post-full-title">Use Deep Learning to Clone Cars Driving Behavior</h1>
+
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2020/04/IMG_0922.jpg" alt="Mani Sai Prasad Masupalli">
+                                    <div class="author-info">
+                                        <h2>Mani Sai Prasad Masupalli</h2>
+                                        <p>Read <a href="../author/manisaiprasad/">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/manisaiprasad/" class="author-avatar">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2020/04/IMG_0922.jpg" alt="Mani Sai Prasad Masupalli">
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/manisaiprasad/">Mani Sai Prasad Masupalli</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2020-04-27">27 Apr 2020</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            <figure class="post-full-image">
+                <img srcset="../content/images/size/w300/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png 300w, ../content/images/size/w600/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png 600w, ../content/images/size/w1000/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png 1000w, ../content/images/size/w2000/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png 2000w" sizes="(max-width: 800px) 400px,
+                        (max-width: 1170px) 1170px,
+                            2000px" src="../content/images/size/w2000/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png" alt="Use Deep Learning to Clone Cars Driving Behavior">
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <h1 id="goals">Goals</h1><ul><li>Use the simulator to collect data of good driving behavior. Udacity provided a simulator application where we can steer a car around a track for data collection. The collected data is comprised of image data captured from a car’s set of cameras as well as steering angles</li><li>Build, a convolution neural network in Keras that predicts steering angles from images</li><li>Train and validate the model with a training and validation set</li><li>Test that the model successfully drives around track one without leaving the road</li></ul><h1 id="model-architecture">Model Architecture</h1><h2 id="1-an-appropriate-model-architecture-has-been-employed">1. An appropriate model architecture has been employed</h2><p>My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18–24)</p><p>The model includes convolutional neural networks (CNNs) My initial approach was to use <a href="http://yann.lecun.com/exdb/lenet/" rel="noopener nofollow">LeNet</a>, but it was hard to have the car inside the street with three epochs (this model could be found <a href="https://github.com/manisaiprasad/CarND-Behavioral-Cloning/blob/master/clone.py#L81-L94" rel="noopener nofollow">here</a>). After this, I decided to try the <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/" rel="noopener nofollow">nVidia Autonomous Car Group</a> model, and the car drove the complete first track after just three training epochs (this model could be found <a href="https://github.com/manisaiprasad/CarND-Behavioral-Cloning/blob/master/model.py#L108-L123" rel="noopener nofollow">here</a>).</p><h2 id="2-attempts-to-reduce-overfitting-in-the-model">2. Attempts to reduce overfitting in the model</h2><p>I decided not to modify the model by applying regularization techniques like Dropout. Instead, I decided to keep the training epochs low: only three epochs. In addition to that, I split my sample data into training and validation data. Using 80% as training and 20% as validation.</p><h2 id="3-model-parameter-tuning">3. Model parameter tuning</h2><p>The model used an Adam optimizer, so the learning rate was not tuned manually (<a href="https://github.com/manisaiprasad/CarND-Behavioral-Cloning/blob/master/model.py#L146" rel="noopener nofollow">model.py line 146</a>).</p><h2 id="4-appropriate-training-data">4. Appropriate training data</h2><p>Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road …</p><p>For details about how I created the training data, see the next section.</p><h1 id="training-strategy">Training Strategy</h1><h2 id="1-solution-design-approach">1. Solution Design Approach</h2><p>The overall strategy for deriving a model architecture</p><p>My first step was to try the LeNet](<a href="http://yann.lecun.com/exdb/lenet/" rel="noopener nofollow">http://yann.lecun.com/exdb/lenet/</a>) model with three epochs and the training data provided by Udacity. On the first track, the car went straight to the lake. I needed to do some pre-processing. A <a href="https://github.com/manisaiprasad/CarND-Behavioral-Cloning/blob/master/model.py#L104" rel="noopener nofollow">new</a><code>Lambda</code> layer was introduced to normalize the input images to zero means. This step allows the car to move a bit further, but it didn't get to the first turn. Another <code>Cropping</code> <a href="https://github.com/manisaiprasad/CarND-Behavioral-Cloning/blob/master/model.py#L105" rel="noopener nofollow">layer</a> was introduced, and the first turn was almost there, but not quite.</p><p>The second step was to use a more powerful model: <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/" rel="noopener nofollow">nVidia Autonomous Car Group</a> The only modification was to add a new layer at the end to have a single output as it was required. This time the car did its first complete track, but there was a place in the track where it passes over the “dashed” line. More data was needed. Augmented the data by adding the same image flipped with a negative angle(<a href="https://github.com/manisaiprasad/CarND-Behavioral-Cloning/blob/master/model.py#L85-L87" rel="noopener nofollow">lines 85–87</a>). In addition to that, the left and right camera images were introduced with a correction factor on the angle to help the car go back to the lane(<a href="https://github.com/manisaiprasad/CarND-Behavioral-Cloning/blob/master/model.py#L50-L63" rel="noopener nofollow">lines 50–63</a>). After this process, the car continues to have the same problem with the same “dashed” line. I needed more data, but it was a good beginning.</p><h2 id="2-creation-of-the-training-set-training-process">2. Creation of the Training Set &amp; Training Process</h2><p>To have more data, the following tracks were capture:</p><ul><li>First track.</li><li>One track driving forward.</li><li>One track driving backward.</li><li>Three second track driving forward.</li></ul><p>All this data was used for training the model with three epochs. The data was shuffled randomly.</p><p>After this training, the car was driving down the road all the time on the <a href="https://youtu.be/naBuIa3N734" rel="noopener nofollow">first</a> and <a href="https://youtu.be/LZvgcfB6TJ8" rel="noopener nofollow">second</a> track.</p><h1 id="autonomous-driving-test">Autonomous Driving Test</h1><p>This is the video of a successful ride around track 1</p><figure class="kg-card kg-embed-card kg-card-hascaption"><iframe src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FnaBuIa3N734%3Ffeature%3Doembed&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DnaBuIa3N734&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FnaBuIa3N734%2Fhqdefault.jpg&key=a19fcc184b9711e1b4764040d3dc5c07&type=text%2Fhtml&schema=youtube" allowfullscreen frameborder="0" height="480" width="854" title="Self Driving Car In a Simulator" class="z ab ac gl v" scrolling="auto" style="box-sizing: inherit; width: 680px; position: absolute; top: 0px; left: 0px; height: 382.188px;"></iframe><figcaption>Track 1</figcaption></figure><figure class="kg-card kg-embed-card kg-card-hascaption"><iframe src="https://cdn.embedly.com/widgets/media.html?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJSOg2H-mI1o&src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FJSOg2H-mI1o%3Ffeature%3Doembed&type=text%2Fhtml&key=a19fcc184b9711e1b4764040d3dc5c07&schema=youtube" allowfullscreen frameborder="0" height="480" width="640" title="Self Driving Car In Simulator Desktop Capture" class="z ab ac gl v" scrolling="auto" style="box-sizing: inherit; width: 680px; position: absolute; top: 0px; left: 0px; height: 510px;"></iframe><figcaption>Desktop Capture of Track 1 Test</figcaption></figure><p>This is the video of a successful ride around track 2</p><figure class="kg-card kg-embed-card kg-card-hascaption"><iframe src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FLZvgcfB6TJ8%3Ffeature%3Doembed&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DLZvgcfB6TJ8&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FLZvgcfB6TJ8%2Fhqdefault.jpg&key=a19fcc184b9711e1b4764040d3dc5c07&type=text%2Fhtml&schema=youtube" allowfullscreen frameborder="0" height="480" width="854" title="Self Driving Car In a Simulator Track 2" class="z ab ac gl v" scrolling="auto" style="box-sizing: inherit; width: 680px; position: absolute; top: 0px; left: 0px; height: 382.188px;"></iframe><figcaption>Track 2</figcaption></figure><h1 id="repository-github-">Repository(GitHub)</h1><p>The final content of the project is available in my <a href="https://github.com/manisaiprasad/CarND-Behavioral-Cloning" rel="noopener nofollow">personal repository in Github.</a></p><ul><li><code>model.py</code>: source code that reads the dataset, creates the CNN model and trains it.</li><li><code>drive.py</code>: source code that feeds the trained model to the simulator. Also used to save frames generated by simulation.</li><li><code>video.py</code>: program that converts frames generated by <code>drive.py</code> into a MP4 video.</li><li><code>model.h5</code>: final trained model used to driving on Track</li><li><code>video.mp4</code>: video of Track 1 simulation generated by <code>video.py</code>.</li><li><code>video_second_track.mp4</code> video of Track 1 simulation generated by <code>video.py</code>.<br></li></ul>
+                </div>
+            </section>
+
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post no-image no-image">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../installing-and-configuring-asterisk-from-source-on-ubuntu-server/">
+
+            <header class="post-card-header">
+                <h2 class="post-card-title">INSTALLING AND CONFIGURING ASTERISK FROM SOURCE ON UBUNTU SERVER</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>Asterisk is used in VOIP. This is a guide on how to install Asterisk on Ubuntu Server. It’s pretty easy/straight forward apt-get update We will install Asterisk in “/usr/src”: cd /usr/src wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Mani Sai Prasad Masupalli
+                    </div>
+            
+                    <a href="../author/manisaiprasad/" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2020/04/IMG_0922.jpg" alt="Mani Sai Prasad Masupalli">
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/manisaiprasad/">Mani Sai Prasad Masupalli</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-05-01">1 May 2020</time> <span class="bull">&bull;</span> 1 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../">Mani Sai Prasad</a> &copy; 2020</section>
+                <nav class="site-footer-nav">
+                    <a href="../">Latest Posts</a>
+                    <a href="https://www.facebook.com/m.manisai" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/mmanisaiprasad" target="_blank" rel="noopener">Twitter</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous">
+    </script>
+    <script src="../assets/built/casper.js"></script>
+
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+
+
+    
+
+</body>
+</html>

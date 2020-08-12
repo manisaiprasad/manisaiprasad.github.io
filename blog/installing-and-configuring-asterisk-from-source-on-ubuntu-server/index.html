@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>INSTALLING AND CONFIGURING ASTERISK FROM SOURCE ON UBUNTU SERVER</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css">
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://localhost:8080/installing-and-configuring-asterisk-from-source-on-ubuntu-server/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://localhost:8080/installing-and-configuring-asterisk-from-source-on-ubuntu-server/amp/">
+    
+    <meta property="og:site_name" content="Mani Sai Prasad">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="INSTALLING AND CONFIGURING ASTERISK FROM SOURCE ON UBUNTU SERVER">
+    <meta property="og:description" content="Asterisk is used in VOIP. This is a guide on how to install Asterisk on Ubuntu Server. It’s pretty easy/straight forward apt-get update We will install Asterisk in “/usr/src”: cd /usr/src wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.21-current.tar.gz . tar -zxvf asterisk-certified-13.">
+    <meta property="og:url" content="http://localhost:8080/installing-and-configuring-asterisk-from-source-on-ubuntu-server/">
+    <meta property="article:published_time" content="2020-05-01T14:08:51.000Z">
+    <meta property="article:modified_time" content="2020-05-01T14:10:51.000Z">
+    <meta property="article:publisher" content="https://www.facebook.com/m.manisai">
+    <meta property="article:author" content="https://www.facebook.com/m.manisai">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="INSTALLING AND CONFIGURING ASTERISK FROM SOURCE ON UBUNTU SERVER">
+    <meta name="twitter:description" content="Asterisk is used in VOIP. This is a guide on how to install Asterisk on Ubuntu Server. It’s pretty easy/straight forward apt-get update We will install Asterisk in “/usr/src”: cd /usr/src wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.21-current.tar.gz . tar -zxvf asterisk-certified-13.">
+    <meta name="twitter:url" content="http://localhost:8080/installing-and-configuring-asterisk-from-source-on-ubuntu-server/">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Mani Sai Prasad Masupalli">
+    <meta name="twitter:site" content="@mmanisaiprasad">
+    <meta name="twitter:creator" content="@mmanisaiprasad">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Mani Sai Prasad",
+        "url": "http://localhost:8080/",
+        "logo": "http://localhost:8080/content/images/2020/05/Mani-Sai-Prasad--3-.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mani Sai Prasad Masupalli",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:8080/content/images/2020/04/IMG_0922.jpg",
+            "width": 2000,
+            "height": 1609
+        },
+        "url": "http://localhost:8080/author/manisaiprasad/",
+        "sameAs": [
+            "https://manisaiprasad.ninja/",
+            "https://www.facebook.com/m.manisai",
+            "https://twitter.com/mmanisaiprasad"
+        ]
+    },
+    "headline": "INSTALLING AND CONFIGURING ASTERISK FROM SOURCE ON UBUNTU SERVER",
+    "url": "http://localhost:8080/installing-and-configuring-asterisk-from-source-on-ubuntu-server/",
+    "datePublished": "2020-05-01T14:08:51.000Z",
+    "dateModified": "2020-05-01T14:10:51.000Z",
+    "description": "Asterisk is used in VOIP. This is a guide on how to install Asterisk on Ubuntu\nServer. It’s pretty easy/straight forward\n\napt-get update\n\nWe will install Asterisk in “/usr/src”:\n\ncd /usr/src\nwget http://downloads.asterisk.org/pub/telephony/certified-asterisk/\nasterisk-certified-13.21-current.tar.gz\n[http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.21-current.tar.gz] \n.\ntar -zxvf asterisk-certified-13.21-current.tar.gz\n[http://downloads.asterisk.org/pub/telepho",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:8080/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.14">
+    <link rel="alternate" type="application/rss+xml" title="Mani Sai Prasad" href="http://localhost:8080/rss/">
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header">
+    <div class="outer site-nav-main">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
+                <a class="site-nav-logo" href="../"><img src="../content/images/2020/05/Mani-Sai-Prasad--3-.png" alt="Mani Sai Prasad"></a>
+            <div class="site-nav-content">
+                    <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="../">Home</a></li>
+    <li class="nav-tag" role="menuitem"><a href="../tag/machine-learning/">Tag</a></li>
+    <li class="nav-author" role="menuitem"><a href="../author/manisaiprasad/">Author</a></li>
+</ul>
+
+                    <span class="nav-post-title ">INSTALLING AND CONFIGURING ASTERISK FROM SOURCE ON UBUNTU SERVER</span>
+            </div>
+        </div>
+    </div>
+    <div class="site-nav-right">
+            <div class="social-links">
+                    <a class="social-link social-link-fb" href="https://www.facebook.com/m.manisai" title="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm5.204 4.911h-3.546c-2.103 0-4.443.885-4.443 3.934.01 1.062 0 2.08 0 3.225h-2.433v3.872h2.509v11.147h4.61v-11.22h3.042l.275-3.81h-3.397s.007-1.695 0-2.187c0-1.205 1.253-1.136 1.329-1.136h2.054V4.911z"/></svg></a>
+                    <a class="social-link social-link-tw" href="https://twitter.com/mmanisaiprasad" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            </div>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/http://localhost:8080/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+</a>
+
+    </div>
+</nav>
+    </div>
+</div></header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post no-image no-image">
+
+            <header class="post-full-header">
+
+
+                <h1 class="post-full-title">INSTALLING AND CONFIGURING ASTERISK FROM SOURCE ON UBUNTU SERVER</h1>
+
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2020/04/IMG_0922.jpg" alt="Mani Sai Prasad Masupalli">
+                                    <div class="author-info">
+                                        <h2>Mani Sai Prasad Masupalli</h2>
+                                        <p>Read <a href="../author/manisaiprasad/">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/manisaiprasad/" class="author-avatar">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2020/04/IMG_0922.jpg" alt="Mani Sai Prasad Masupalli">
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/manisaiprasad/">Mani Sai Prasad Masupalli</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2020-05-01">1 May 2020</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>Asterisk is used in VOIP. This is a guide on how to install Asterisk on Ubuntu Server. It’s pretty easy/straight forward</p><p>apt-get update</p><p>We will install Asterisk in “/usr/src”:</p><p>cd /usr/src<br>wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/<a href="http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.21-current.tar.gz" rel="noopener nofollow">asterisk-certified-13.21-current.tar.gz</a> .<br>tar -zxvf <a href="http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.21-current.tar.gz" rel="noopener nofollow">asterisk-certified-13.21-current.tar.gz</a><br>cd cd <a href="http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.21-current.tar.gz" rel="noopener nofollow">asterisk-certified-13.21-current</a>/</p><p>Install some dependencies:</p><p>apt-get install build-essential <br>apt-get install libxml2-dev<br>apt-get install libncurses5-dev libreadline-dev libreadline6-dev<br>apt-get install libssl-dev<br>apt-get install uuid-dev<br>apt-get install libjansson-dev<br>apt-get install libsqlite3-dev<br>apt-get install pkg-config</p><p>Use native SIP library in asterisk (quick and easy way)</p><p>./configure<br>make menuselect</p><p>Under channel drivers –&gt; select chan_sip (press enter then save by pressing back then “s”). Then continue to compile &amp; install instructions.</p><h1 id="compile-and-install-asterisk">Compile and Install Asterisk</h1><p>make<br>make install<br>makes samples <br>make config</p><p>Crank asterisk up:</p><p>/etc/init.d/asterisk start</p><p>Then connect to Asterisk Cli:</p><p>asterisk -rvvvvvvvv</p><p>Congrats at this point you have successfully installed Asterisk</p><h1 id="get-configuration-files">Get configuration files</h1><p>Backup configuration files which come with Asterisk default installation:</p><p>cd /etc/<br>mv asterisk asterisk.orig</p><p>Install <code>git</code> (if not already present on your system):</p><p>apt-get install git-core</p><p>Checkout GoTrunk configuration files:</p><p>git clone https://github.com/GoTrunk/asterisk-config.git asterisk</p><p>For Asterisk on Static IP:</p><p>cd /etc/asterisk<br>git checkout static-ip</p><p>For Asterisk on Dynamic IP:</p><p>cd /etc/asterisk<br>git checkout dynamic-ip</p><h1 id="update-configuration-files">Update configuration files</h1><p>Use your favorite text editor to update <code>sip.conf</code> file.</p><p>Change <code>!!!ReplaceWithProperPassword!!!</code> in example extensions <code>201</code> and <code>202</code> configuration. For <code>dynamic-ip</code>configuration update your GoTrunk <code>SIP_CREDENTIALS</code></p>
+                </div>
+            </section>
+
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post ">
+
+    <a class="post-card-image-link" href="../ai-with-almost-no-code/">
+        <img class="post-card-image" srcset="../content/images/size/w300/2020/05/1_l8QRBL6MB1yiwjOmQ0dX1Q-1.png 300w, ../content/images/size/w600/2020/05/1_l8QRBL6MB1yiwjOmQ0dX1Q-1.png 600w, ../content/images/size/w1000/2020/05/1_l8QRBL6MB1yiwjOmQ0dX1Q-1.png 1000w, ../content/images/size/w2000/2020/05/1_l8QRBL6MB1yiwjOmQ0dX1Q-1.png 2000w" sizes="(max-width: 1000px) 400px, 700px" loading="lazy" src="../content/images/size/w600/2020/05/1_l8QRBL6MB1yiwjOmQ0dX1Q-1.png" alt="AI with almost No Code">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../ai-with-almost-no-code/">
+
+            <header class="post-card-header">
+                <h2 class="post-card-title">AI with almost No Code</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>Is it possible to use AI without needing to code?The answer is yes!Is a data set is enough to build a machine model?Yeah that's it..!All you</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Mani Sai Prasad Masupalli
+                    </div>
+            
+                    <a href="../author/manisaiprasad/" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2020/04/IMG_0922.jpg" alt="Mani Sai Prasad Masupalli">
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/manisaiprasad/">Mani Sai Prasad Masupalli</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-05-01">1 May 2020</time> <span class="bull">&bull;</span> 3 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post tag-machine-learning tag-self-driving-cars featured ">
+
+    <a class="post-card-image-link" href="../use-deep-learning-to-clone/">
+        <img class="post-card-image" srcset="../content/images/size/w300/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png 300w, ../content/images/size/w600/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png 600w, ../content/images/size/w1000/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png 1000w, ../content/images/size/w2000/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png 2000w" sizes="(max-width: 1000px) 400px, 700px" loading="lazy" src="../content/images/size/w600/2020/04/1_TGobsMetK1FRFWvGBZQ92g-1.png" alt="Use Deep Learning to Clone Cars Driving Behavior">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../use-deep-learning-to-clone/">
+
+            <header class="post-card-header">
+                    <div class="post-card-primary-tag">Machine Learning</div>
+                <h2 class="post-card-title">Use Deep Learning to Clone Cars Driving Behavior</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>GoalsUse the simulator to collect data of good driving behavior. Udacity provided a simulator application where we can steer a car around a track for data collection. The collected data</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Mani Sai Prasad Masupalli
+                    </div>
+            
+                    <a href="../author/manisaiprasad/" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2020/04/IMG_0922.jpg" alt="Mani Sai Prasad Masupalli">
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/manisaiprasad/">Mani Sai Prasad Masupalli</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-04-27">27 Apr 2020</time> <span class="bull">&bull;</span> 3 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../">Mani Sai Prasad</a> &copy; 2020</section>
+                <nav class="site-footer-nav">
+                    <a href="../">Latest Posts</a>
+                    <a href="https://www.facebook.com/m.manisai" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/mmanisaiprasad" target="_blank" rel="noopener">Twitter</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous">
+    </script>
+    <script src="../assets/built/casper.js"></script>
+
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+
+
+    
+
+</body>
+</html>
